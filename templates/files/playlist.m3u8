@@ -1,0 +1,16 @@
+#EXTM3U
+#EXT-X-VERSION:4
+#EXT-X-TARGETDURATION:10
+#EXT-X-MEDIA-SEQUENCE:{{sequence}}
+#EXTINF:10.000000,
+/static/videos/segment{{seq1}}.ts
+{%- if seq1 > seq2 %}
+#EXT-X-DISCONTINUITY"
+{%- endif %}
+#EXTINF:10.000000,
+/static/videos/segment{{seq2}}.ts
+{%- if seq2 > seq3 %}
+#EXT-X-DISCONTINUITY"
+{%- endif %}
+#EXTINF:10.000000,
+/static/videos/segment{{seq3}}.ts

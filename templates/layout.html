@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% macro user_menu(current_user) %}
+<li class="dropdown user user-menu">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="height: 50px;">
+     <img src="/static/images/fa_user_256_fff.png" class="user-image" alt="User Image">
+     <span class="hidden-xs">Hola {{ current_user.name }}!</span>
+  </a>
+  <ul class="dropdown-menu">
+     <li class="user-header">
+        <img src="/static/images/fa_user_256_fff.png" class="img-circle" alt="User Image">
+        <p>
+        {{ current_user.email }}
+        </p>
+     </li>
+     <li class="user-footer">
+        <div class="pull-left">
+           <a href="/users/show/{{current_user.id}}" class="btn btn-default btn-flat">Perfil</a>
+        </div>
+        <div class="pull-right">
+           <a href="/logout" class="btn btn-default btn-flat" title="Logout"><i class="fa fa-sign-out"></i></a>
+        </div>
+     </li>
+  </ul>
+</li>
+{% endmacro %}
+
+
+{% macro sidebar_menu(current_user) %}
+     <ul class="sidebar-menu tree" data-widget="tree">
+        <li><a href="/home"><i class="fa fa-home"></i><span>Live</span></a></li>
+     </ul>
+{% endmacro %}
+
+
+
+
+{% block main_header %}
+<header class="main-header">
+  <a href="/" class="logo">
+    <span class="logo-mini"><b>Live</b></span>
+    <span class="logo-lg"><b>Live Streaming</b></span>
+  </a>
+  <nav class="navbar navbar-static-top">
+     <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+     <span class="sr-only">Toggle navigation</span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     </a>
+
+     <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+        {{ user_menu(current_user) }}
+        </ul>
+     </div>
+  </nav>
+</header>
+{% endblock main_header %}
+
+{% block main_sidebar %}
+<aside class="main-sidebar">
+  <section class="sidebar" style="height: auto;">
+     {{ sidebar_menu(current_user) }}
+  </section>
+</aside>
+{% endblock main_sidebar %}
+
+{% block content_wrapper %}
+<div class="content-wrapper" style="min-height: 1019.73px;">
+
+  <section class="content-header">
+     <div class="row">
+        <div class="col-sm-12 col-md-12">
+           <div id="flashes" class="flashes">
+           </div>
+        </div>
+        {% block content_header %}
+        {% endblock %}
+     </div>
+  </section>
+  <section class="content">
+     {% block content %}{% endblock %}
+  </section>
+</div>
+{% endblock content_wrapper %}

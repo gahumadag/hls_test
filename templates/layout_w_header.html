@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block body %}
+<body class="skin-blue layout-top-nav">
+<div class="wrapper" role="main">
+
+  {% block main_header %}
+  <header class="main-header">
+     <nav class="navbar navbar-static-top">
+        <div class="navbar-header">
+           <a href="/" class="logo">
+           </a>
+        </div>
+     </nav>
+  </header>
+  {% endblock main_header %}
+
+
+  {% block content_wrapper %}
+  <div class="content-wrapper" style="min-height: 1019.73px;">
+     <section class="content-header">
+     {% block content_header %}
+     {% endblock %}
+     </section>
+        <section>
+        <div class="row">
+           <div class="col-sm-12 col-md-12">
+              <div id="flashes" class="flashes">
+              </div>
+           </div>
+        </div>
+     </section>
+     <section class="content">
+        {% block content %}{% endblock %}
+     </section>
+  </div>
+  {% endblock content_wrapper %}
+
+  {% block main_footer %}
+  {{ super() }}
+  {% endblock main_footer %}
+</div>
+
+{% block scripts %}
+{{ super() }}
+{% endblock scripts %}
+</body>
+{% endblock %}
+
+
+
+
+
+
+
+
+

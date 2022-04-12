@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+{% block head %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edges">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>{% block title %}{% endblock %}</title>
+    {% block styles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" href="/static/css/AdminLTE.css">
+    <link rel="stylesheet" href="/static/css/skin-blue.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% endblock styles %}
+    </head>
+{% endblock head %}
+
+{% block body %}
+<body class="skin-blue sidebar-mini hold-transition">
+  <div class="wrapper" role="main">
+  {% block main_header %}{% endblock %}
+  
+  {% block main_sidebar %}{% endblock %}
+
+  {% block content_wrapper %}{% endblock %}
+  
+  </div>
+
+  {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="/static/js/bootstrap-slider.min.js" async="async"></script>
+  <script type="text/javascript" src="/static/js/adminlte.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+   {% endblock scripts %}
+</body>
+{% endblock body %}
+</html>
+
