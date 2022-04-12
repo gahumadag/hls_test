@@ -1,0 +1,13 @@
+{
+    "defaultEnv": "dev",
+    "dev": {
+        "driver": "mysql",
+        "user": "hls",
+        "password": "hlspassword",
+        "host": "localhost",
+        "database": "streaming",
+        "multipleStatements": true,
+        "flags": "CONNECT_WITH_DB",
+        "port": 3306
+    }
+}
