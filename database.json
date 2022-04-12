@@ -2,10 +2,10 @@
     "defaultEnv": "dev",
     "dev": {
         "driver": "mysql",
-        "user": "hls",
-        "password": "hlspassword",
-        "host": "localhost",
-        "database": "streaming",
+        "user": {"ENV": "DB_USER"},
+        "password": {"ENV": "DB_PASS"},
+        "host": {"ENV": "DB_HOST"},
+        "database": {"ENV": "MYSQL_DB"},
         "multipleStatements": true,
         "flags": "CONNECT_WITH_DB",
         "port": 3306
