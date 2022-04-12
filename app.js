@@ -5,7 +5,7 @@ const session = require('express-session');
 const mysql_store = require('express-mysql-session')(session);
 const db = require('./db');
 const crypto = require('crypto');
-const {hashSync, genSaltSync, compareSync } = require('bcrypt');
+const {hashSync, genSaltSync, compareSync } = require('bcryptjs');
 const nunjucks = require('nunjucks');
 
 const PORT = process.env.PORT || 3050;
@@ -197,4 +197,8 @@ app.get('/playlist', redirect_login, async(req,res)=>{
         console.log(e);
         res.sendStatus(404);
     }
+});
+
+app.all('*', redirect_login, function(req, res) {
+    res.redirect('/home');
 });
